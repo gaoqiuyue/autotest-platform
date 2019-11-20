@@ -14,7 +14,7 @@ def login(request):
         if user is not None and user.is_active:
             auth.login(request,user)
             request.session['user']=username
-            response=HttpResponseRedirect("/home/")
+            response=HttpResponseRedirect("/index/")
             return  response
         else:
             return render(request,'login.html',{"error":"username or password error"})
@@ -22,3 +22,5 @@ def login(request):
     return render(request,'login.html')
 def home(request):
     return render(request,"home.html")
+def index(request):
+    return render(request,"index.html")

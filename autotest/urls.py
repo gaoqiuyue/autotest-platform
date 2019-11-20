@@ -18,6 +18,7 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 from apitest import views
+from product import proviews
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,5 +26,6 @@ urlpatterns = [
     path('login/',views.login),
     path('home/',views.home),
     path('index/',views.index),
-    path('logout/',views.logout)
+    path('logout/',views.logout),
+    path('product_manage/',proviews.product_manage)
 ]+static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)

@@ -18,7 +18,9 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 from apitest import views
+from bug import bugviews
 from product import proviews
+from set import setviews
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,5 +29,12 @@ urlpatterns = [
     path('home/',views.home),
     path('index/',views.index),
     path('logout/',views.logout),
-    path('product_manage/',proviews.product_manage)
-]+static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
+    path('product_manage/',proviews.product_manage),
+    path('apitest_manage/', views.apitest_manage),
+    path('apistep_manage/', views.apistep_manage),
+    path('apis_manage/', views.apis_manage),
+    path('bugs_manage/', bugviews.bug_manage),
+    path('set_manage/',setviews.set_manage),
+    path('set_user/',setviews.set_user),
+
+              ]+static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
